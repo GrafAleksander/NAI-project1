@@ -14,6 +14,7 @@ public class Main {
 
         algorithm.inputTestEntry(1, 1 ,1 , 1);
         algorithm.fillLengthLabelList();
+        System.out.println("Label is " + algorithm.labelReturn());
     }
 }
 

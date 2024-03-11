@@ -27,11 +27,27 @@ public class Algorithm {
             lengthLabelList.add(new LengthLabelObject(length, training.label));
         }
         Collections.sort(lengthLabelList);
-        for (LengthLabelObject obj: lengthLabelList) {
-            System.out.println("Length is " + obj.length +" Label is " + obj.label);
-        }
     }
 
+    String labelReturn(){
+        List<LengthLabelObject> kList = lengthLabelList.subList(0, Math.min(lengthLabelList.size(), k));
+        Map<String, Integer> labelCountMap = new HashMap<>();
+        for (LengthLabelObject str : kList) {
+            String label = str.label;
+            int count = labelCountMap.getOrDefault(label, 0);
+            labelCountMap.put(label, count + 1);
+        }
 
+        int maxValue = Integer.MIN_VALUE;
+        String maxKey = null;
+
+        for (Map.Entry<String, Integer> entry : labelCountMap.entrySet()) {
+            if (entry.getValue() > maxValue) {
+                maxValue = entry.getValue();
+                maxKey = entry.getKey();
+            }
+        }
+        return maxKey;
+    }
 
 }
