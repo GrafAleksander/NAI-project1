@@ -3,7 +3,11 @@ package org.example;
 import java.util.Scanner;
 
 public class UserInterface {
-    Algorithm algorithm = new Algorithm();
+    Algorithm algorithm;
+
+    public UserInterface(Algorithm algorithm) {
+        this.algorithm = algorithm;
+    }
 
     void start(){
         Scanner reader = new Scanner(System.in);
@@ -14,6 +18,7 @@ public class UserInterface {
             System.out.println("Choose 3 for changing k");
             System.out.println("Choose 4 to exit from program");
             int des = reader.nextInt();
+
         }
     }
 }
