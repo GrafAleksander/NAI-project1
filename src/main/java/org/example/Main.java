@@ -2,6 +2,8 @@ package org.example;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -11,8 +13,12 @@ public class Main {
 
         Algorithm algorithm = new Algorithm();
         algorithm.trainingData = trainingDataManager.trainingData;
-
-        algorithm.inputTestEntry(1, 1 ,1 , 1);
+        List<Float> test = new ArrayList<>();
+        test.add(1.0F);
+        test.add(1.0F);
+        test.add(1.0F);
+        test.add(1.0F);
+        algorithm.inputTestEntry(test);
         algorithm.fillLengthLabelList();
         System.out.println("Label is " + algorithm.labelReturn());
     }

@@ -1,18 +1,14 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Training_Entry {
     String label;
-    float firstNumber;
-    float secondNumber;
-    float thirdNumber;
-    float fourthNumber;
+    List<Float> points;
 
-
-    public Training_Entry(String label, float firstNumber, float secondNumber, float thirdNumber, float fourthNumber) {
+    public Training_Entry(String label, List<Float> points) {
         this.label = label;
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-        this.thirdNumber = thirdNumber;
-        this.fourthNumber = fourthNumber;
+        this.points = points;
     }
 }

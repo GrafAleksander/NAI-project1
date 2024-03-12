@@ -13,18 +13,18 @@ public class Algorithm {
         System.out.println("Changed k to " + k);
     }
 
-    void inputTestEntry(float firstNumber, float secondNumber, float thirdNumber, float fourthNumber){
-        this.testEntry = new Test_Entry(firstNumber, secondNumber, thirdNumber, fourthNumber );
+    void inputTestEntry(List<Float> testPoints){
+        this.testEntry = new Test_Entry(testPoints);
     }
 
     void fillLengthLabelList(){
         for (Training_Entry training: trainingData) {
-            float length;
-            length = (float) Math.sqrt((testEntry.firstNumber - training.firstNumber)*(testEntry.firstNumber - training.firstNumber) +
-                                       (testEntry.secondNumber - training.secondNumber)*(testEntry.secondNumber - training.secondNumber) +
-                                       (testEntry.thirdNumber - training.thirdNumber)*(testEntry.thirdNumber - training.thirdNumber) +
-                                       (testEntry.fourthNumber - training.fourthNumber)*(testEntry.fourthNumber - training.fourthNumber));
-            lengthLabelList.add(new LengthLabelObject(length, training.label));
+            float lengthInit = 0;
+            for (int i = 0; i < training.points.size(); i++) {
+                lengthInit= lengthInit + training.points.get(i)*training.points.get(i);
+            }
+            float lengthFin = (float) Math.sqrt(lengthInit);
+            lengthLabelList.add(new LengthLabelObject(lengthFin, training.label));
         }
         Collections.sort(lengthLabelList);
     }
@@ -49,5 +49,4 @@ public class Algorithm {
         }
         return maxKey;
     }
-
 }
