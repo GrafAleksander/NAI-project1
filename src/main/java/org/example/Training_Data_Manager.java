@@ -11,7 +11,7 @@ public class Training_Data_Manager {
 
     void inputTrainingData() throws IOException {
 
-        BufferedReader fileReader = new BufferedReader(new FileReader("C:\\Users\\Aleks\\UTP\\NAI-project1\\src\\main\\java\\org\\example\\train.txt"));
+        BufferedReader fileReader = new BufferedReader(new FileReader("C:\\Users\\s28693\\IdeaProjects\\NAI-project1\\src\\main\\java\\org\\example\\train.txt"));
         String line;
         while ((line = fileReader.readLine()) != null){
             String[] parts = line.split(",");

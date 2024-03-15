@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlgorithmApl {
-    Algorithm algorithm = new Algorithm();
+    Algorithm algorithm;
 
     public AlgorithmApl(Algorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    void inputFile() throws IOException {
-        BufferedReader fileReader = new BufferedReader(new FileReader("C:\\Users\\Aleks\\UTP\\NAI-project1\\src\\main\\java\\org\\example\\test.txt"));
+    void inputFile(String src) throws IOException {
+        BufferedReader fileReader = new BufferedReader(new FileReader(src));
         String line;
         int countT=0, count =0;
         while ((line = fileReader.readLine()) != null){
@@ -35,6 +35,8 @@ public class AlgorithmApl {
                  countT++;
              }
         }
-        System.out.println("Correctness is " + (countT/count)*100);
+        System.out.println("Count total " + count + " Correct count " + countT);
+        double correctness = ((double)countT/ (double)count)*100;
+        System.out.println("Correctness is " + correctness);
     }
 }
